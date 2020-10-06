@@ -1,0 +1,21 @@
+// https://leetcode.com/problems/two-sum/
+class Solution {
+public:
+    // https://www.techiedelight.com/find-pair-with-given-sum-array/
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> res;
+        unordered_map<int, int> maps;
+        for(int i=0; i<n; i++){
+            if(maps.find(target-nums[i]) != maps.end()){
+                res.push_back(maps[target-nums[i]]);
+                res.push_back(i);
+                return res;
+            }
+            else // Pair has not yet been found, so save value to hash table
+                maps[nums[i]] = i;
+                
+        }
+        return res;
+    }
+};
